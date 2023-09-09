@@ -1,0 +1,28 @@
+// set fonts from assets/fonts/*
+
+@font-face {
+    font-family: 'Calamity-Bold';
+    src: url('../fonts/Calamity-Bold.woff') format('woff'),
+        url('../fonts/Calamity-Bold.woff2') format('woff2'),
+        url('../fonts/Calamity-Bold.otf') format('otf');
+}
+
+@font-face {
+    font-family: 'Calamity-Regular';
+    src: url('../fonts/Calamity-Regular.woff') format('woff'),
+        url('../fonts/Calamity-Regular.woff2') format('woff2'),
+        url('../fonts/Calamity-Regular.otf') format('otf');
+}
+
+body {
+    font-family: 'Calamity-Regular', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Calamity-Bold', sans-serif;
+}

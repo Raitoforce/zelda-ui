@@ -1,18 +1,15 @@
+// one file to rule them all
+
+@import 'normalize';
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+@import 'components/index';
+@import 'layouts/index';
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-body {
-  min-height: 100vh;
-  background: #eee;
-  background-size: cover;
-}
-
-.red-title {
-  color: red;
+    height: 100vh;
+    max-height: 100vh;
+    background: url('../assets/imgs/zelda-background.jpg') no-repeat;
+    background-size: cover;
 }
