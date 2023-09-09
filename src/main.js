@@ -1,6 +1,4 @@
-import './assets/sass/main.scss'
+import './assets/sass/main.scss';
+import { startToListenRoutes } from './core/router';
 
-document.querySelector('#app').innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`
+startToListenRoutes();
