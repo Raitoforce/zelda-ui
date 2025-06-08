@@ -1,0 +1,5 @@
+#!/bin/bash
+
+npx lint-staged
+
+echo "Files formatted successfully 🎉"
