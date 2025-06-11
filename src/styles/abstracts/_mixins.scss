@@ -1,0 +1,27 @@
+/**
+ * @mixin breakpoint
+ * @description Creates a media query for a given breakpoint.
+ *
+ * @param {String} $point - The name of the breakpoint.
+ *   Valid values are 'small', 'medium', 'large', 'xlarge'.
+ *
+ * @example scss - Usage
+ *   @include breakpoint(medium) {
+ *     // styles here will only be applied when the viewport is 768px or smaller
+ *   }
+ */
+@mixin breakpoint($point) {
+  $breakpoints: (
+    small: 600px,
+    medium: 768px,
+    large: 992px,
+    xlarge: 1200px
+  );
+
+  @if map-has-key($breakpoints, $point) {
+    @media (max-width: map-get($breakpoints, $point)) { @content; }
+  } @else {
+    @error "Invalid breakpoint `#{$point}`. Please use one of the following: #{map-keys($breakpoints)}";
+  }
+}
+

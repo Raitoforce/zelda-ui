@@ -1,0 +1,53 @@
+@use 'sass:color';
+
+$spacing-unit: 8px;
+
+$color-primary: #feffff;
+$color-secondary: #286c7e;
+$color-background: #002f68;
+
+$color-primary-text: #eef5f7;
+$color-secondary-text: #0b3372;
+
+$font-size-base: 16px;
+$font-weight-base: 400;
+$line-height-base: 1.5;
+
+$border-radius-base: 4px;
+
+
+/* ===== Design Tokens ===== */
+/* Spacing */
+$spacing-unit: 8px;
+$spacing-xs: $spacing-unit * 0.5; // 4px
+$spacing-sm: $spacing-unit;       // 8px
+$spacing-md: $spacing-unit * 2;   // 16px
+$spacing-lg: $spacing-unit * 3;   // 24px
+$spacing-xl: $spacing-unit * 4;   // 32px
+
+/* Colors */
+$color-primary: #feffff;
+$color-primary-hover: #d4f0f5;    // Light blue for hover states
+$color-secondary: #286c7e;
+$color-secondary-dark: color.adjust($color-secondary, $lightness: -10%);
+$color-background: #002f68;
+$color-background-alt: color.adjust($color-background, $lightness: 5%);
+
+$color-text-primary: #eef5f7;
+$color-text-secondary: #9ad4e0;   // Lightened for better contrast
+$color-text-heading: $color-primary;
+
+/* Typography */
+$font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+$font-size-base: 16px;
+$font-size-sm: $font-size-base * 0.875;  // 14px
+$font-size-h1: clamp(2.5rem, 5vw, 3.5rem); // Responsive sizing
+$font-weight-base: 400;
+$font-weight-bold: 600;
+$line-height-base: 1.5;
+$line-height-heading: 1.2;
+
+/* Borders & Effects */
+$border-radius-base: 4px;
+$transition-duration: 0.2s;
+$box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
