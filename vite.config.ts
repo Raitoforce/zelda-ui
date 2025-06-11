@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react-swc';
-import { defineConfig } from 'vitest/config';
 import path from 'path';
+import { defineConfig } from 'vitest/config';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -13,7 +13,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "@styles/abstracts/variables" as *;`,
+        additionalData: `@use "@styles/abstracts/variables" as *; @use "@styles/abstracts/mixins" as *;`,
       },
     },
   },
