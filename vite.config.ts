@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
-import { defineConfig } from 'vitest/config';
+import { configDefaults, defineConfig } from 'vitest/config';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -21,5 +21,18 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
+    include: ['src/**/*.{test,spec}.{js,mjs,ts,mts,cts,jsx,tsx}'],
+    exclude: [
+      ...configDefaults.exclude,
+      'src/vite-env.d.ts',
+      '*.config.{js,cjs,mjs,ts,mts,cts,jsx,tsx}',
+    ],
+    coverage: {
+      exclude: [
+        ...configDefaults.exclude,
+        'src/vite-env.d.ts',
+        '*.config.{js,cjs,mjs,ts,mts,cts,jsx,tsx}',
+      ],
+    },
   },
 });
