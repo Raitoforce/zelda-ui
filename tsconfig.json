@@ -4,14 +4,28 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
-  "compilerOptions": {
-    "types": ["vitest/importMeta", "vitest/globals", "vite/client"],
-    "composite": true,
+   "compilerOptions": {
+    "rootDir": "src",               
+    "outDir": "dist/js",            
+    "declaration": true,            
+    "declarationDir": "dist/types", 
+    "composite": true,              
+    "module": "esnext",             
+    "target": "es2020",             
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
   },
   "include": [
-    "src",
-    "src/**/*.test.ts",
-    "src/**/*.test.tsx",
-    "src/setupTests.ts"
+    "src/**/*.{js,jsx,ts,tsx}",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/test",
+    "src/**/*.{test,spec}.{js,mjs,ts,mts,cts,jsx,tsx}"
   ]
 }
+

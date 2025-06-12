@@ -2,12 +2,15 @@ import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 import { configDefaults, defineConfig } from 'vitest/config';
 
+/// <reference types="vitest" />
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
       '@styles': path.resolve(__dirname, 'src/styles'),
+      '@components': path.resolve(__dirname, 'src/components'),
     },
   },
   css: {
@@ -34,5 +37,8 @@ export default defineConfig({
         '*.config.{js,cjs,mjs,ts,mts,cts,jsx,tsx}',
       ],
     },
+  },
+  define: {
+    'import.meta.vitest': 'undefined',
   },
 });

@@ -1,8 +1,8 @@
+import Card from '@components/elements/card/Card';
+import Footer from '@components/elements/footer/Footer';
+import Header from '@components/elements/header/Header';
+import Nav from '@components/elements/nav/Nav';
 import type { FunctionComponent } from 'react';
-import Card from '../elements/card/Card';
-import Footer from '../elements/footer/Footer';
-import Header from '../elements/header/Header';
-import Nav from '../elements/nav/Nav';
 import './_Layout.scss';
 
 const Layout: FunctionComponent = () => {
