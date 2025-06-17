@@ -6,11 +6,32 @@
   justify-content: center;
   min-height: 100vh;
   overflow: hidden;
+  gap: $spacing-lg;
+  padding: 0 ($spacing-md * 2);
+  height: 100dvh;
 
   &__row {
+    width: clamp(90%, 320px, 100dvw);
     display: flex;
     align-items: center;
     justify-content: center;
     flex: 1 1 auto;
+
+    &--full {
+      flex: 12 1 auto;
+    }
+  }
+
+  &__card {
+    width: 100%;
+    display: flex;
+    gap: $spacing-md;
+    align-items: center;
+  }
+
+  &__router {
+    flex: 1 1 auto;
+    height: 100%;
+    margin-bottom: $spacing-lg;
   }
 }

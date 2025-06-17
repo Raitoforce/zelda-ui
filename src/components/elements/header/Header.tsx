@@ -8,11 +8,7 @@ type Props = {
 const Header: FunctionComponent<Props> = ({ title = '' }) => {
   return (
     <>
-      <img
-        className="title-img"
-        src="https://via.placeholder.com/150"
-        alt="logo"
-      />
+      <img className="title-img" src="public/zelda-icon.png" alt="logo" />
       <h1 className="title" aria-level={1} role="heading">
         {title}
       </h1>

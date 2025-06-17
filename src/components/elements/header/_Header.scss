@@ -3,7 +3,9 @@
   text-align: center;
 
   &-img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    object-fit: cover;
+    margin-left: $spacing-md;
+    filter: drop-shadow(0 0 16px rgba(0, 0, 0, 0.66));
   }
 }

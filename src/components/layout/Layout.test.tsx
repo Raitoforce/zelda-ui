@@ -86,4 +86,19 @@ describe('Layout Component', () => {
     expect(input).toBeInTheDocument();
     expect(firstCard).toContainElement(input);
   });
+
+  it('should have a content row and a head row', () => {
+    render(<Layout></Layout>);
+    const headRow = screen.getByRole('head-row');
+    const contentRow = screen.getByRole('content-row');
+
+    expect(headRow).toBeInTheDocument();
+    expect(contentRow).toBeInTheDocument();
+  });
+
+  it('should have a content row with className layout__row--full', () => {
+    render(<Layout></Layout>);
+    const contentRow = screen.getByRole('content-row');
+    expect(contentRow).toHaveClass('layout__row--full');
+  });
 });

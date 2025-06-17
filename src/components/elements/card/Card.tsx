@@ -4,11 +4,16 @@ import './_Card.scss';
 interface CardProps {
   children?: React.ReactNode;
   padding?: string;
+  className?: string;
 }
 
-const Card: FunctionComponent<CardProps> = ({ children, padding = '1rem' }) => {
+const Card: FunctionComponent<CardProps> = ({
+  children,
+  padding = '1rem',
+  className = '',
+}) => {
   return (
-    <section role="card" className="card" style={{ padding }}>
+    <section role="card" className={`card ${className}`} style={{ padding }}>
       {children}
     </section>
   );

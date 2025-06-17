@@ -1,6 +1,6 @@
 .card {
-  border: 1px solid $color-primary;
+  padding: $spacing-md;
   border-radius: $border-radius-base;
-  margin-bottom: $spacing-md;
   box-shadow: $box-shadow-md;
+  background-color: $color-background-alt;
 }

@@ -9,15 +9,15 @@ import { NAVIGATION_LINKS } from './links.const';
 const Layout: FunctionComponent = () => {
   return (
     <section className="layout" role="layout">
-      <section className="layout__row">
-        <Card>
+      <section className="layout__row" role="head-row">
+        <Card className="layout__card">
           <Header></Header>
           <Nav links={NAVIGATION_LINKS}></Nav>
           <input type="text" role="search" />
         </Card>
       </section>
-      <section className="layout__row">
-        <Card>
+      <section className="layout__row layout__row--full" role="content-row">
+        <Card className="layout__router">
           <div role="router"></div>
         </Card>
       </section>
