@@ -20,7 +20,7 @@ a {
   color: $color-primary;
   text-decoration: inherit;
   transition: color $transition-duration ease;
-  
+
   &:hover {
     color: $color-primary-hover;
   }
@@ -28,19 +28,11 @@ a {
 
 body {
   margin: 0;
+  width: 100dvw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, $color-background 0%, $color-background-alt 100%);
-  padding: $spacing-xl;
-}
-
-h1 {
-  font-size: $font-size-h1;
-  line-height: $line-height-heading;
-  color: $color-text-heading;
-  text-shadow: $box-shadow-sm;
-  margin-bottom: $spacing-lg;
+  overflow: hidden;
 }

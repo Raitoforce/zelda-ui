@@ -1,5 +1,10 @@
 .footer {
-  background-color: $color-primary;
+  display: flex;
+  width: 100dvw;
+  height: 50px;
+  justify-content: center;
+  padding: $spacing-md;
+  background-color: $color-secondary;
   color: $color-text-primary;
   text-align: center;
 }

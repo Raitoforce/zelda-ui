@@ -4,6 +4,7 @@ import Header from '@components/elements/header/Header';
 import Nav from '@components/elements/nav/Nav';
 import type { FunctionComponent } from 'react';
 import './_Layout.scss';
+import { NAVIGATION_LINKS } from './links.const';
 
 const Layout: FunctionComponent = () => {
   return (
@@ -11,7 +12,7 @@ const Layout: FunctionComponent = () => {
       <section className="layout__row">
         <Card>
           <Header></Header>
-          <Nav></Nav>
+          <Nav links={NAVIGATION_LINKS}></Nav>
           <input type="text" role="search" />
         </Card>
       </section>
