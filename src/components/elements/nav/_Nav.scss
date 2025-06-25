@@ -5,7 +5,7 @@
   &__list {
     width: 100%;
     display: flex;
-    gap: 3rem;
+    gap: spacing(xl);
     justify-content: center;
     list-style: none;
   }
@@ -51,9 +51,9 @@
 
 @keyframes glow {
   from {
-    filter: drop-shadow(0 0 1px rgba(240, 253, 245, 0.3));
+    filter: drop-shadow(0 0 1px rgba(240, 253, 245, 0.2));
   }
   to {
-    filter: drop-shadow(0 0 2px rgba(253, 253, 253, 0.6));
+    filter: drop-shadow(0 0 6px rgba(253, 253, 253, 0.55));
   }
 }

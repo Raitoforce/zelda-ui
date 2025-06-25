@@ -1,35 +1,94 @@
 @use 'sass:color';
+@use 'sass:map';
 
-$spacing-unit: 8px;
+/* ===== Design Tokens Refactorizados ===== */
+/* ========= Sistema de Espaciado ========= */
+$spacing-base: 0.5rem; // 8px (base relativa)
+$spacings: (
+  xs: $spacing-base * 0.5,
+  // 4px
+  sm: $spacing-base,
+  // 8px
+  md: $spacing-base * 2,
+  // 16px
+  lg: $spacing-base * 3,
+  // 24px
+  xl: $spacing-base * 4,
+  // 32px
+  xxl: $spacing-base * 6, // 48px
+);
 
-$font-size-base: 16px;
-$font-weight-base: 400;
-$line-height-base: 1.5;
+/* =========== Sistema de Colores ========== */
+$colors: (
+  primary: (
+    100: #d4f0f5,
+    500: #286c7e,
+    700: #1a4a58,
+    hover: #1a4a58,
+  ),
+  accent: (
+    300: #ffd166,
+    500: #ffb74d,
+    700: #f57c00,
+  ),
+  neutral: (
+    50: #feffff,
+    100: #eef5f7,
+    200: #c2e4eb,
+    800: #002f68,
+    900: #001f4d,
+  ),
+  semantic: (
+    success: #4caf50,
+    warning: #ff9800,
+    error: #f44336,
+    info: #2196f3,
+  ),
+);
 
-$border-radius-base: 4px;
+/* ===== Funciones de Acceso ===== */
+@function color($category, $shade: 500) {
+  @if map.has-key($colors, $category) {
+    $category-map: map.get($colors, $category);
 
-/* ===== Design Tokens ===== */
+    @if not map.has-key($category-map, $shade) {
+      @error "Shade #{$shade} not found, use one of the following: #{map-keys($category-map)}";
+    }
+
+    @return map.get($category-map, $shade);
+  }
+  @error "Color #{$category} not found, use one of the following: #{map-keys($colors)}";
+}
+
+@function spacing($size) {
+  @if not map.has-key($spacings, $size) {
+    @error "Spacing #{$size} not found, use one of the following: #{map-keys($spacings)}";
+  }
+
+  @return map.get($spacings, $size);
+}
+
+/* ===== Variables Alias (backward compatible) ===== */
 /* Spacing */
-$spacing-unit: 8px;
-$spacing-xs: $spacing-unit * 0.5; // 4px
-$spacing-sm: $spacing-unit; // 8px
-$spacing-md: $spacing-unit * 2; // 16px
-$spacing-lg: $spacing-unit * 3; // 24px
-$spacing-xl: $spacing-unit * 4; // 32px
+$spacing-unit: spacing(sm); // 8px
+$spacing-xs: spacing(xs);
+$spacing-sm: spacing(sm);
+$spacing-md: spacing(md);
+$spacing-lg: spacing(lg);
+$spacing-xl: spacing(xl);
 
 /* Colors */
-$color-primary: #feffff;
-$color-primary-hover: #d4f0f5; // Light blue for hover states
-$color-secondary: #286c7e;
-$color-secondary-dark: color.adjust($color-secondary, $lightness: -10%);
-$color-background: #002f68;
-$color-background-alt: color.adjust($color-background, $lightness: 5%);
+$color-primary: color(primary, 500);
+$color-primary-hover: color(primary, 100);
+$color-secondary: color(accent, 300);
+$color-secondary-dark: color(accent, 500);
+$color-background: color(neutral, 800);
+$color-background-alt: color(neutral, 900);
+$color-text-primary: color(neutral, 100);
+$color-text-secondary: color(neutral, 200);
+$color-text-heading: color(neutral, 50);
 
-$color-text-primary: #eef5f7;
-$color-text-secondary: #9ad4e0; // Lightened for better contrast
-$color-text-heading: $color-primary;
-
-/* Typography */
+/* ===== Tipografía ===== */
 $font-family:
   system-ui,
   -apple-system,
@@ -37,24 +96,72 @@ $font-family:
   Roboto,
   'Helvetica Neue',
   sans-serif;
-$font-size-base: 16px;
-$font-size-sm: $font-size-base * 0.875; // 14px
-$font-size-h1: clamp(2.5rem, 5vw, 3.5rem); // Responsive sizing
+$font-size-base: 1rem; // 16px
+$font-size-sm: 0.875rem; // 14px
+$font-size-h1: clamp(2.5rem, 5vw, 3.5rem);
 $font-weight-base: 400;
 $font-weight-bold: 600;
 $line-height-base: 1.5;
 $line-height-heading: 1.2;
 
-/* Borders & Effects */
-$border-radius-base: 4px;
+/* ===== Utilidades de Espaciado ===== */
+@each $name, $value in $spacings {
+  .m-#{$name} {
+    margin: $value;
+  }
+  .p-#{$name} {
+    padding: $value;
+  }
+  .mt-#{$name} {
+    margin-top: $value;
+  }
+  .mb-#{$name} {
+    margin-bottom: $value;
+  }
+  .ml-#{$name} {
+    margin-left: $value;
+  }
+  .mr-#{$name} {
+    margin-right: $value;
+  }
+  .pt-#{$name} {
+    padding-top: $value;
+  }
+  .pb-#{$name} {
+    padding-bottom: $value;
+  }
+}
+
+/* ===== Utilidades de Color ===== */
+@each $category, $shades in $colors {
+  @each $shade, $value in $shades {
+    .bg-#{$category}-#{$shade} {
+      background-color: $value;
+    }
+    .text-#{$category}-#{$shade} {
+      color: $value;
+    }
+  }
+}
+
+/* ===== Borders & Effects ===== */
+$border-radius-base: 0.25rem; // 4px
 $transition-duration: 0.2s;
 
-/* Shadows */
-$box-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.1);
-$box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* ===== Sombras ===== */
+$deeper-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.45);
+
+$box-shadow-xs: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
+$box-shadow-sm: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
 $box-shadow-md:
-  0 0 1px 0 rgba(0, 0, 0, 0.1),
-  0 0 8px 0 rgba(0, 0, 0, 0.06);
+  $deeper-shadow,
+  0 0 0.125rem 0 rgba(0, 0, 0, 0.2),
+  0 0 1rem 0 rgba(0, 0, 0, 0.12);
 $box-shadow-lg:
-  0 0 8px 0 rgba(0, 0, 0, 0.1),
-  0 0 4px 0 rgba(0, 0, 0, 0.06);
+  $deeper-shadow,
+  0 0 0.25rem 0 rgba(0, 0, 0, 0.2),
+  0 0 1.5rem 0 rgba(0, 0, 0, 0.12);
+$box-shadow-xl:
+  $deeper-shadow,
+  0 0 0.5rem 0 rgba(0, 0, 0, 0.2),
+  0 0 2rem 0 rgba(0, 0, 0, 0.12);

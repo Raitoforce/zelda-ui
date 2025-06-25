@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 /**
  * @mixin breakpoint
  * @description Creates a media query for a given breakpoint.
@@ -15,13 +17,14 @@
     small: 600px,
     medium: 768px,
     large: 992px,
-    xlarge: 1200px
+    xlarge: 1200px,
   );
 
-  @if map-has-key($breakpoints, $point) {
-    @media (max-width: map-get($breakpoints, $point)) { @content; }
+  @if map.has-key($breakpoints, $point) {
+    @media (max-width: map.get($breakpoints, $point)) {
+      @content;
+    }
   } @else {
-    @error "Invalid breakpoint `#{$point}`. Please use one of the following: #{map-keys($breakpoints)}";
+    @error "Invalid breakpoint `#{$point}`. Please use one of the following: #{map.keys($breakpoints)}";
   }
 }
-

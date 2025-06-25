@@ -13,7 +13,7 @@ const Layout: FunctionComponent = () => {
         <Card className="layout__card">
           <Header></Header>
           <Nav links={NAVIGATION_LINKS}></Nav>
-          <input type="text" role="search" />
+          <input type="search" role="search" placeholder="Search" />
         </Card>
       </section>
       <section className="layout__row layout__row--full" role="content-row">

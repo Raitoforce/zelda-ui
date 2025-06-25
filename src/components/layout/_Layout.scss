@@ -7,7 +7,7 @@
   min-height: 100vh;
   overflow: hidden;
   gap: $spacing-lg;
-  padding: 0 ($spacing-md * 2);
+  padding: 0 spacing(md);
   height: 100dvh;
 
   &__row {
@@ -33,5 +33,24 @@
     flex: 1 1 auto;
     height: 100%;
     margin-bottom: $spacing-lg;
+  }
+}
+
+input {
+  width: clamp(45rem, 420px, 100dvw);
+  padding: spacing(sm);
+  height: 2.5rem;
+  border-radius: $border-radius-base;
+  box-shadow: $box-shadow-xs;
+  transition: box-shadow $transition-duration ease-in-out;
+  border: 2px solid color(accent, 300);
+  background: transparent;
+  outline: none;
+  position: relative;
+  z-index: 0;
+  color: color(neutral, 50);
+
+  &:hover {
+    border: 3px solid color(accent, 700);
   }
 }
