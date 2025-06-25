@@ -8,6 +8,13 @@
     gap: spacing(xl);
     justify-content: center;
     list-style: none;
+
+    @include breakpoint(small) {
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: spacing(md);
+    }
   }
 
   &__item {
